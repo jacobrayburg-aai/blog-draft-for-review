@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planting the Flag — Arsenal AI</title>
+<style>
+  :root{
+    --paper:#fdfcf9;
+    --ink:#16161a;
+    --body:#2c2c31;
+    --muted:#6c6c72;
+    --hairline:#e7e4db;
+    --hairline-strong:#d8d4c8;
+    --gold:#9a7b2e;
+    --gold-soft:#b9952f;
+    --serif:"Charter","Iowan Old Style","Palatino Linotype","Georgia",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --measure:680px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--paper); color:var(--body);
+    font-family:var(--sans); font-size:20px; line-height:1.72;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  a{color:var(--gold); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .masthead{border-bottom:1px solid var(--hairline);}
+  .masthead-inner{
+    max-width:1080px; margin:0 auto; padding:20px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .wordmark{
+    font-family:var(--sans); font-weight:700; letter-spacing:.24em;
+    font-size:13px; text-transform:uppercase; color:var(--ink);
+  }
+  .masthead .tag{
+    font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  }
+
+  .wrap{max-width:var(--measure); margin:0 auto; padding:84px 32px 56px;}
+  .kicker{
+    font-family:var(--sans); font-size:12.5px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:28px;
+  }
+  h1{
+    font-family:var(--serif); font-weight:700; color:var(--ink);
+    font-size:58px; line-height:1.06; letter-spacing:-.015em; margin:0 0 22px;
+  }
+  .subtitle{
+    font-family:var(--serif); font-size:25px; line-height:1.42; color:#46464c;
+    font-weight:400; font-style:italic; margin:0 0 34px;
+  }
+  .meta{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    padding:18px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
+    font-family:var(--sans); font-size:13.5px; letter-spacing:.03em; color:var(--muted);
+  }
+  .meta .author{color:var(--ink); font-weight:600;}
+  .meta .d{width:3px; height:3px; border-radius:50%; background:var(--hairline-strong);}
+
+  .body{padding-top:42px;}
+  .body p{margin:0 0 26px; color:var(--body);}
+  .body p.first::first-letter{
+    font-family:var(--serif); float:left; font-size:74px; line-height:.82;
+    padding:6px 12px 0 0; color:var(--ink); font-weight:700;
+  }
+  strong{color:var(--ink); font-weight:700;}
+  em{font-style:italic;}
+  .lede{font-size:22px; line-height:1.6; color:#34343a;}
+  .gold-num{color:var(--gold); font-weight:700; font-style:normal; white-space:nowrap;}
+
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--hairline-strong); border-bottom:1px solid var(--hairline-strong);
+    margin:46px 0;
+  }
+  .stat{padding:30px 22px; text-align:center; position:relative;}
+  .stat + .stat{border-left:1px solid var(--hairline);}
+  .stat .num{font-family:var(--serif); font-size:42px; line-height:1; color:var(--gold); font-weight:700;}
+  .stat .lab{font-family:var(--sans); font-size:13px; line-height:1.45; color:var(--muted); margin-top:12px; letter-spacing:.01em;}
+
+  .pull{
+    margin:48px 0; padding:6px 0 6px 28px; border-left:3px solid var(--gold);
+    font-family:var(--serif); font-size:30px; line-height:1.34; color:var(--ink); font-weight:500;
+  }
+  .pull .em{color:var(--gold);}
+
+  .signoff{margin-top:46px; padding-top:30px; border-top:1px solid var(--hairline);}
+  .signoff .name{font-family:var(--sans); font-weight:700; color:var(--ink); font-size:17px;}
+  .signoff .role{font-family:var(--sans); color:var(--muted); font-size:13.5px; margin-top:5px; letter-spacing:.02em;}
+
+  footer{border-top:1px solid var(--hairline); margin-top:24px;}
+  .footer-inner{
+    max-width:1080px; margin:0 auto; padding:26px 32px 60px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .footer-inner .fm{font-family:var(--sans); font-weight:700; letter-spacing:.22em; font-size:12px; text-transform:uppercase; color:var(--ink);}
+  .footer-inner .note{font-family:var(--sans); font-size:12px; color:var(--muted); letter-spacing:.04em;}
+
+  @media (max-width:640px){
+    body{font-size:18px;}
+    .wrap{padding:52px 22px 40px;}
+    h1{font-size:38px;}
+    .subtitle{font-size:21px;}
+    .lede{font-size:20px;}
+    .pull{font-size:23px; padding-left:20px;}
+    .stats{grid-template-columns:1fr;}
+    .stat + .stat{border-left:0; border-top:1px solid var(--hairline);}
+    .body p.first::first-letter{font-size:60px;}
+    .masthead-inner .tag{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="wordmark">Arsenal&nbsp;AI</span>
+    <span class="tag">Founder's Note</span>
+  </div>
+</header>
+
+<article class="wrap">
+  <div class="kicker">Perspective &nbsp;·&nbsp; Pittsburgh</div>
+  <h1>Planting the Flag</h1>
+  <p class="subtitle">Why we're betting on Pittsburgh.</p>
+  <div class="meta">
+    <span class="author">Jake Rayburg</span>
+    <span class="d"></span>
+    <span>June 24, 2026</span>
+    <span class="d"></span>
+    <span>6 min read</span>
+  </div>
+
+  <div class="body">
+    <p class="first lede">Arsenal AI is a young company with a stubborn belief: the next generation of world-changing technology companies can be built right here in Pittsburgh.</p>
+
+    <p>I grew up here, so maybe I'm a little biased. But I've never been more optimistic about this city than I am right now. In the late 1800s and early 1900s, Pittsburgh led our nation through an industrial revolution that fundamentally changed society — manufacturing, transportation, even the household appliance, all of it transformed. Much of this innovation was both invented and manufactured right here in our region — like aluminum, in my hometown of New Kensington, home to Alcoa. Today, the Pittsburgh area is strategically positioned to lead the next wave: AI and robotics.</p>
+
+    <p>There's a certain irony to it. The legacies built by Carnegie Steel and the Mellon family's ventures — Alcoa among them — endowed the institutions that merged to become Carnegie Mellon University. And CMU now anchors the next revolution: it's where the modern foundations of robotics and machine learning were invented, and one of the most important research institutions in the world. CMU startups alone have created more than <span class="gold-num">$658 billion</span> in value and raised over <span class="gold-num">$40 billion</span> to build new companies.</p>
+
+    <p>What a lot of people don't realize is that most of the firms funding these companies and taking them to scale aren't in Pittsburgh. So founders feel forced to leave — to the Bay Area or New York. I get it. But the goal at Arsenal AI is to change that.</p>
+
+    <p>Ven Raju, who runs Innovation Works, broke it down on Adam Conner's <em>Thought Liters</em> podcast: for every dollar invested in Pittsburgh's tech ecosystem, only about <strong>two cents comes from within the city itself.</strong> Two percent. Comparable cities — Nashville, Raleigh-Durham, Philadelphia — pull 25 to 35 percent of their early-stage capital from resident sources. Pittsburgh is standing on the riverbank, watching other people fund its own potential.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="num">$658B</div><div class="lab">in value created by CMU startups</div></div>
+      <div class="stat"><div class="num">~2%</div><div class="lab">of Pittsburgh tech capital that's local</div></div>
+      <div class="stat"><div class="num">$1.48B</div><div class="lab">venture capital into Pittsburgh in 2025</div></div>
+    </div>
+
+    <p>Making this change happen will take real, sustained effort — but this city is primed for it. It starts with proven entrepreneurs reinvesting in the local startup community: driving the next wave of innovation, and giving the next generation of Pittsburgh companies the capital and support they need to scale.</p>
+
+    <p>That kind of compounding is exactly what my cofounder, Chris Quimby, and I are trying to start — and we're backing it with real skin in the game, not just conviction. Chris spent years building, merging, scaling, and selling companies in healthcare technology. Now he's doubling down on Pittsburgh rather than taking his chips somewhere shinier (or less cloudy), committing significant capital to strengthen the foundation of our startup ecosystem. Chris is our chairman, and a mentor of mine. I left a career advising on AI and emerging technology to build this alongside him. Two different paths to the same stubborn conviction: that Pittsburgh's AI and robotics will lead the world through the next revolution — and we need to be part of it.</p>
+
+    <p>So where does Arsenal AI fit into this?</p>
+
+    <p>We're actively leading fundraising for four companies being built right here — all at the pre-seed stage, raising between $500K and $1M. The founders behind them are serious operators: from patented PhD leaders of research labs at Pitt, to second-time founders with near-billion-dollar exits, to modular-construction pioneers, to highly specialized AI engineers building critical government systems. We couldn't be more excited about our first cohort of portfolio companies, and we look forward to introducing them more formally later this summer.</p>
+
+    <p>As we invested capital, time, and engineering services into our portfolio companies, we found a broader need for the kind of highly specialized AI and data-engineering talent on our team. In comes Arsenal AI Consulting — which, one could argue, is its own fast-growing business in our portfolio. We're now working with large enterprise clients, and couldn't be more excited about the growth.</p>
+
+    <p>I left PwC's AI &amp; Digital Strategy practice in October to start Arsenal AI with Chris. We ended 2025 with three other team members. By March we had ten, and today our team includes over twenty of the most ambitious AI nerds in Pittsburgh (myself included). Most of us trained at CMU, Pitt, Penn State, or grew up in this region, and many hold master's degrees in AI, computer science, or data science. We apply leading Big Four agile product-development methodologies and AI-optimization strategies to companies across Pittsburgh and the country.</p>
+
+    <p>This will create real efficiencies — in business and in society as a whole. We're living through an AI and energy revolution that could fundamentally change the world. Every revolution has brought scary unknowns about job loss and things "not being the way they used to be," and, unfortunately, some parts of the old world are always lost to time. My hope is that the good will outweigh the bad.</p>
+
+    <blockquote class="pull">The technology is inevitable. <span class="em">The distribution of its benefits is not.</span></blockquote>
+
+    <p>I imagine a world powered by abundant energy — cheap solar, better batteries, and breakthroughs in storage and transmission — with AI, robotics, and automation built on top of it. A world where AI helps cure cancer, where a refrigerator or washing machine drops from thousands of dollars to hundreds, where self-driving electric cars save thousands of lives a year. The average American worked about 55 hours a week in 1900; as this next era arrives, I'm sure people will spend less time working. But I'm optimistic they'll find greater meaning, not less. Arsenal AI is set on helping build that future — and on giving the Pittsburgh region a stronger foundation for it.</p>
+
+    <div class="signoff">
+      <div class="name">Jake Rayburg</div>
+      <div class="role">Co-founder &amp; CEO · Arsenal AI</div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span class="fm">Arsenal&nbsp;AI</span>
+    <span class="note">Pittsburgh, Pennsylvania</span>
+  </div>
+</footer>
+
+</body>
+</html>
